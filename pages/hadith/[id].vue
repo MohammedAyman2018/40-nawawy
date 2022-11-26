@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="container">
     <header class="flex justify-end items-center">
-      <!-- <select @change="changeLang" v-model="choosedLang">
-        <option class="font-kawkab" value="en">English</option>
+      <select @change="changeLang" v-model="choosedLang">
+        <option class="font-ubuntu" value="en">English</option>
         <option value="ar">العربية</option>
-      </select> -->
+      </select>
       <div class="font-change">
         <button @click="changeFont('less')">
           <img
@@ -23,8 +23,6 @@
       </div>
     </header>
 
-    <input type="range" id="myRange" value="1" max="100" />
-
     <ContentQuery
       :key="route.params.id"
       path="/hadith"
@@ -42,6 +40,9 @@
             <h1 class="text-2xl underline font-bold mb-3">
               {{ data[locale].title }}
             </h1>
+            <p v-if="locale === 'en'" class="my-2 font-madina">
+              {{ data["ar"].text }}
+            </p>
             <p class="font-bold">{{ data[locale].text }}</p>
           </section>
 
@@ -50,84 +51,61 @@
               {{ $t("listenTo") }}
             </h3>
 
-            <div>
-              <button @click="changeAudioState('play')">
-                <img
-                  width="50px"
-                  src="~/assets/icons/play.svg"
-                  alt="play.svg"
-                />
-              </button>
-              <button @click="changeAudioState('pause')">
-                <img
-                  width="50px"
-                  src="~/assets/icons/pause-button.svg"
-                  alt="fonts[idx + 1]"
-                />
-              </button>
-            </div>
-            <audio style="display: none" id="audio" controls>
+            <audio id="audio" controls>
               <source :src="`/sounds/${data.no}.mp3`" type="audio/mpeg" />
               Your browser does not support the audio tag.
             </audio>
           </section>
-          <section></section>
-          <iframe
-            v-for="vid in data[locale].video"
-            :key="locale + vid.video"
-            width="560"
-            height="315"
-            :src="vid.video"
-            :title="data[locale].title"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-          <button
-            :disabled="Number(route.params.id) === 1"
-            @click="go('before')"
-          >
-            {{ $t("before") }}
-          </button>
-          <button
-            :disabled="Number(route.params.id) === 42"
-            @click="go('next')"
-          >
-            {{ $t("next") }}
-          </button>
+          <section class="mb-5">
+            <h3 class="text-2xl underline font-bold mb-3">
+              {{ $t("explaination") }}
+            </h3>
+            <iframe
+              v-for="vid in data[locale].video"
+              :key="locale + vid.video"
+              class="my-3"
+              width="100%"
+              height="315"
+              :src="vid.video"
+              :title="data[locale].title"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </section>
         </main>
       </ContentRenderer>
     </ContentQuery>
-    <p>icons source <a href="thenounproject.com">thenounproject.com</a></p>
+    <div class="flex justify-between items-center">
+      <button :disabled="Number(route.params.id) === 1" @click="go('before')">
+        {{ $t("before") }}
+      </button>
+      <button :disabled="Number(route.params.id) === 42" @click="go('next')">
+        {{ $t("next") }}
+      </button>
+    </div>
+    <footer>
+      <p class="text-center my-3 text-sm">
+        icons source
+        <a target="_blank" href="www.thenounproject.com">thenounproject.com</a>
+      </p>
+    </footer>
   </div>
 </template>
 
 <script setup async>
 import { ref } from "vue";
 const { locale } = useI18n();
-const route = useRoute();
 const router = useRouter();
 
 const choosedLang = ref(locale.value);
+const route = useRoute();
+const localePath = useLocalePath();
 const changeLang = () => {
-  console.log("choosedLang ===>", choosedLang.value);
-  document.body.setAttribute("class", "");
-  if (choosedLang.value === "en") {
-    document.body.classList.add("ubuntu");
-  } else {
-    document.body.classList.add("kawkab");
-  }
-
   locale.value = choosedLang.value;
+  console.log(localePath(route.path));
+  router.push(localePath(route.path));
 };
-
-onMounted(() => {
-  if (locale.value === "en") {
-    document.body.classList.add("ubuntu");
-  } else {
-    document.body.classList.add("kawkab");
-  }
-});
 
 const go = (val) => {
   if (val === "next") {
@@ -160,11 +138,4 @@ const changeFont = (changeType) => {
   document.body.style.fontSize =
     changeType === "more" ? fonts[idx + 1] : fonts[idx - 1];
 };
-
-const changeAudioState = (changeType) => {
-  const theAudio = document.getElementById("audio");
-  if (changeType === "play") theAudio.play();
-  else theAudio.pause();
-};
-// const refresh = () => refreshNuxtData("/count");
 </script>
