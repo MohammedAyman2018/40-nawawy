@@ -7,5 +7,5 @@ body.kawkab {
 }
 
 body.ubuntu {
-  font-family: "Ubuntu";
+  @apply font-ubuntu;
 }
