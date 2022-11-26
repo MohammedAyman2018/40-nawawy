@@ -11,6 +11,10 @@ export default defineNuxtConfig({
       lang: "ar",
     },
   },
+  ssr: false,
+  nitro: {
+    preset: "service-worker",
+  },
   css: ["~/assets/fonts/fonts.css", "~/assets/main.css"],
   i18n: {
     locales: [
@@ -27,5 +31,8 @@ export default defineNuxtConfig({
     langDir: "./lang",
     strategy: "prefix",
     defaultLocale: "ar",
+  },
+  content: {
+    watch: false,
   },
 });
