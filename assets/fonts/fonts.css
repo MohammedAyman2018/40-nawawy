@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "kawkab";
+  font-weight: 500;
+  src: local("kawkab"),
+    url(assets/fonts/kawkab/kawkab-bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "madina";
+  font-weight: 500;
+  src: local("madina"),
+    url(assets/fonts/quran-madina/MADDINA.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu-Bold";
+  font-weight: 700;
+  src: local("Ubuntu-Bold"),
+    url(assets/fonts/Ubuntu/Ubuntu-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu-Regular";
+  font-weight: 500;
+  src: local("Ubuntu"),
+    url(assets/fonts/Ubuntu/Ubuntu-Regular.ttf) format("truetype");
+}

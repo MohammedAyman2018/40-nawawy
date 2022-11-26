@@ -1,0 +1,11 @@
+body.madina {
+  @apply font-madina;
+}
+
+body.kawkab {
+  @apply font-kawkab;
+}
+
+body.ubuntu {
+  font-family: "Ubuntu";
+}

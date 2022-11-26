@@ -1,0 +1,24 @@
+{
+    "category": "hadith",
+    "en": {
+        "title": "HADITH 3 : The five pillars of Islam",
+        "text": "On the authority of Ibn Omar, the son of Omar bin Al-Khattab, may Allah be pleased with both, who said : I heared the messenger of Allah say :'Islam has been built on five [pillars]: testifying that there is no god but Allah and that Muhammed is the messenger of Allah, performing the prayers, paying the zakat, making the pilgrimage to the House, and fasting in Ramadan.'related by Bukhari and Muslim",
+        "video": [
+            {
+                "sheikh": "Sheikh Uthman Ibn Farooq",
+                "video": "https://www.youtube.com/embed/nYAmcCv-0qk"
+            }
+        ]
+    },
+    "ar": {
+        "title": "الحديث الثالث: أركان الإسلام",
+        "text": "عنْ أبي عبدِ الرَّحمنِ عبدِ اللهِ بنِ عُمرَ بنِ الخطَّابِ رَضِي اللهُ عَنْهُما قالَ:( سَمِعْتُ رسُولَ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ يَقُولُ:{ بُنِيَ الإِسْلاَمُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لاَ إِلَهَ إِلاَّ اللهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللهِ، وَإِقامِ الصَّلاَةِ، وإِيتَاءِ الزَّكَاةِ، وَحَجِّ البَيْتِ، وَصَوْمِ رَمَضَانَ }) رواه البخاريُّ ومسلمٌ.",
+        "video": [
+            {
+                "sheikh": "الشيخ عثمان الخميس",
+                "video": "https://www.youtube.com/embed/h0nkpmAL1Qo"
+            }
+        ]
+    },
+    "no": 3
+}
