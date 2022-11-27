@@ -24,12 +24,12 @@
             <p class="font-bold">{{ data[locale].text }}</p>
           </section>
 
-          <section class="flex items-center justify-between mb-5">
+          <section class="md:flex md:items-center md:justify-between mb-5">
             <h3 class="text-2xl underline font-bold mb-3">
               {{ $t("listenTo") }}
             </h3>
 
-            <audio id="audio" controls>
+            <audio class="mt-3 md:mt-0" id="audio" controls>
               <source :src="`/sounds/${data.no}.mp3`" type="audio/mpeg" />
               Your browser does not support the audio tag.
             </audio>
