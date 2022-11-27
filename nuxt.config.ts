@@ -4,13 +4,6 @@ import { defineNuxtConfig } from "nuxt";
 
 export default defineNuxtConfig({
   modules: ["@nuxt/content", "@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
-  meta: {
-    title: "الأربعون النووية",
-    htmlAttrs: {
-      dir: "rtl",
-      lang: "ar",
-    },
-  },
   ssr: false,
   nitro: {
     preset: "service-worker",
