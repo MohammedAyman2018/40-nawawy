@@ -6,6 +6,7 @@
 
 <script setup>
 const route = useRoute();
+console.log(route.fullPath);
 useHead({
   bodyAttrs: {
     class: route.path.includes("ar") ? "madina" : "ubuntu",
